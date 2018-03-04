@@ -1,26 +1,14 @@
-import _ from 'lodash';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 import './style.less';
-import Icon from './react.png';
-import printMe from './print.js';
 
-function component() {
-  var element = document.createElement('div');
-
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
-  var btn = document.createElement('button');
-
-  var myIcon = new Image();
-  myIcon.src = Icon;
-
-  element.appendChild(myIcon);
-
-  btn.innerHTML = 'Click me and check the console';
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
-
-  return element;
+if (process.env.NODE_ENV !== 'production') {
+  console.log('Development');
+} else {
+  console.log('Production');
 }
 
-document.body.appendChild(component());
+const title = 'Portfolio';
+
+ReactDOM.render(<div>{title}</div>, document.getElementById('app'));
